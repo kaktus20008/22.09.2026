@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Простой блог{% endblock %}</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+            background: #f7f7f8;
+            color: #1f2328;
+            line-height: 1.6;
+        }
+        h1 { font-size: 32px; }
+        a { color: #0b66c3; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.06);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            display: block;
+        }
+        .article-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+        .back { display: inline-block; margin-bottom: 16px; color: #57606a; }
+        header.site { margin-bottom: 24px; }
+        header.site h1 a { color: #1f2328; }
+    </style>
+</head>
+<body>
+    <header class="site">
+        <h1><a href="{% url 'article_list' %}">Простой блог</a></h1>
+    </header>
+
+    {% block content %}{% endblock %}
+</body>
+</html>

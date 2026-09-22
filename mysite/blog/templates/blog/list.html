@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}Все статьи{% endblock %}
+
+{% block content %}
+    {% for a in articles %}
+        <article class="card">
+            <a href="{% url 'article_detail' a.slug %}">
+                <img src="{% static a.image %}" alt="{{ a.title }}">
+            </a>
+            <h2>
+                <a href="{% url 'article_detail' a.slug %}">{{ a.title }}</a>
+            </h2>
+            <p>{{ a.content|truncatewords:20 }}</p>
+            <a href="{% url 'article_detail' a.slug %}">Читать →</a>
+        </article>
+    {% endfor %}
+{% endblock %}
