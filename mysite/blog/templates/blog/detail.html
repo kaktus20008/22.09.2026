@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <article class="card">
+        <a class="back" href="{% url 'article_list' %}">← ко всем статьям</a>
+        <h1>{{ article.title }}</h1>
+        <img class="article-img" src="{% static article.image %}" alt="{{ article.title }}">
+        <p>{{ article.content }}</p>
+    </article>
+{% endblock %}
